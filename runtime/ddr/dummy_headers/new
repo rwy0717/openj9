@@ -1,0 +1,18 @@
+#if !defined(DDR_DUMMY_NEW_)
+#define DDR_DUMMY_NEW_
+
+#include <stdint.h>
+
+namespace std {
+
+typedef ::size_t size_t;
+
+struct nothrow_t {};
+extern const nothrow_t nothrow;
+
+} /* namespace std */
+
+void* operator new(std::size_t);
+void* operator new(std::size_t, const std::nothrow_t&) throw();
+
+#endif /* DDR_DUMMY_NEW_ */
